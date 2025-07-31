@@ -1,28 +1,38 @@
 # Grading System
-import sys
 
-marks = input()
+def grading_sys():
 
-if marks.upper() == "EXIT":
-    print("Exiting the program.")
-    sys.exit()
+    marks = input()
 
+    # Exit Condition
+    if marks.upper() == "EXIT":
+        return "Exiting the program."
+    
+    # Validate input is numeric
+    if not marks.isdigit():
+        return "Invalid input. Please enter a number between 0 and 100."
+    
+    # Convert input String into Integer
+    marks = int(marks)
 
-if not marks.isdigit():
-    print("Invalid input. Please enter a number between 0 and 100.")
-    sys.exit()
+    # Check if marks are in valid range
+    if marks < 0 or marks > 100:
+        print("Invalid input. Marks should be between 0 and 100.")
 
-marks = int(marks)
-
-if marks < 0 or marks > 100:
-    print("Invalid input. Marks should be between 0 and 100.")
-elif marks >= 90:
-    print("A")
-elif marks >= 75:
-    print("B")
-elif marks >= 60:
-    print("C")
-elif marks >= 40:
-    print("D")
-else:
-    print("F")
+    # Grading Logic 
+    elif marks >= 90:
+        return 'A'
+    elif marks >= 75:
+        return 'B'
+    elif marks >= 60:
+        return 'C'
+    elif marks >= 40:
+        return 'D'
+    else:
+        return 'F'
+    
+    
+if __name__ == "__main__":
+    grade=grading_sys()
+    print(grade)
+    
